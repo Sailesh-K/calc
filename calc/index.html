@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <script>
+      var div = document.createElement("div");
+        div.setAttribute("id", "calculator");
+
+        var ip = document.createElement("input");
+        ip.setAttribute("id", "display");
+        ip.setAttribute("readonly", true);
+
+        
+
+        var k = document.createElement("div");
+        k.setAttribute("id", "keys");
+
+        function opButton(x) {
+            const button = document.createElement('button');
+            button.setAttribute('onclick', `appendToDisplay('${x}')`);
+            button.className = 'operator-btn';
+            button.innerHTML = `${x}`;
+            k.append(button);
+        }
+
+        function numButton(x) {
+            const button = document.createElement('button');
+            button.setAttribute('onclick', `appendToDisplay('${x}')`);
+            button.innerHTML = `${x}`;
+            k.append(button);
+        }
+
+        function calcButton() {
+            const button = document.createElement('button');
+            button.setAttribute('onclick', `calculate()`);
+            button.innerHTML = `=`;
+            k.append(button);
+        }
+
+        function clrButton() {
+            const button = document.createElement('button');
+            button.setAttribute('onclick', `clearDisplay()`);
+            button.innerHTML = `C`;
+            k.append(button);
+        }
+
+        opButton('+');
+        numButton('7');
+        numButton('8');
+        numButton('9');
+        opButton('-');
+        numButton('4');
+        numButton('5');
+        numButton('6');
+        opButton('*');
+        numButton('1');
+        numButton('2');
+        numButton('3');
+        opButton('/');
+        numButton('0');
+        calcButton();
+        clrButton();
+
+        div.append(ip);
+
+        div.append(k);
+
+        document.body.append(div);
+    </script>
+            
+
+    <script src="script.js"></script>
+</body>
+</html>
